@@ -6,13 +6,30 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		94A598E22EAE8B2B00D4E45D /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 94A598E12EAE8B2B00D4E45D /* GoogleMobileAds */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		94A597E02EA8BB5D00D4E45D /* Sleep-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sleep-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		94A598DF2EAE2B1F00D4E45D /* Exceptions for "Sleep-app" folder in "Sleep-app" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 94A597DF2EA8BB5D00D4E45D /* Sleep-app */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		94A597E22EA8BB5D00D4E45D /* Sleep-app */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				94A598DF2EAE2B1F00D4E45D /* Exceptions for "Sleep-app" folder in "Sleep-app" target */,
+			);
 			path = "Sleep-app";
 			sourceTree = "<group>";
 		};
@@ -23,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94A598E22EAE8B2B00D4E45D /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +83,7 @@
 			);
 			name = "Sleep-app";
 			packageProductDependencies = (
+				94A598E12EAE8B2B00D4E45D /* GoogleMobileAds */,
 			);
 			productName = "Sleep-app";
 			productReference = 94A597E02EA8BB5D00D4E45D /* Sleep-app.app */;
@@ -94,6 +113,9 @@
 			);
 			mainGroup = 94A597D72EA8BB5D00D4E45D;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				94A598E02EAE8B2B00D4E45D /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 94A597E12EA8BB5D00D4E45D /* Products */;
 			projectDirPath = "";
@@ -255,6 +277,7 @@
 				DEVELOPMENT_TEAM = WJNB26R5VS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Sleep-app/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "夜音";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -285,6 +308,7 @@
 				DEVELOPMENT_TEAM = WJNB26R5VS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Sleep-app/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "夜音";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -326,6 +350,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		94A598E02EAE8B2B00D4E45D /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		94A598E12EAE8B2B00D4E45D /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94A598E02EAE8B2B00D4E45D /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 94A597D82EA8BB5D00D4E45D /* Project object */;
 }
