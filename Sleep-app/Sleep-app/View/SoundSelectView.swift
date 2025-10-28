@@ -8,37 +8,27 @@
 import SwiftUI
 
 struct SoundSelectView: View {
+    @ObservedObject var soundViewModel: SoundSelectViewModel
+    @ObservedObject var homeViewModel: HomeViewModel
     @Environment(\.dismiss) var dismiss
-    @Binding var current: SoundType?   // ← Homeから渡される現在の選択
     @State private var animateGradient = false
+    
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [
-                    animateGradient ? Color.indigo.opacity(0.7) : Color.blue.opacity(0.4),
-                    Color.black
-                ],
-                startPoint: animateGradient ? .topLeading : .bottomTrailing,
-                endPoint: animateGradient ? .bottomTrailing : .topLeading
-            )
-            .ignoresSafeArea()
-            .animation(.easeInOut(duration: 5).repeatForever(autoreverses: true), value: animateGradient)
-            .onAppear { animateGradient = true }
-            
+            homeViewModel.AnimatedGradientBackground()
             VStack(spacing: 40) {
                 Text("夜音 - Yoruoto")
                     .font(.largeTitle.bold())
                     .foregroundColor(.white)
                     .padding(.top, 50)
-                ScrollView(.vertical, showsIndicators: false) {
+                // .vertical 縦方向 showsIndicators バーの有無
+                ScrollView(.vertical) {
                     VStack(spacing: 20) {
                         ForEach(SoundType.allCases, id: \.self) { type in
-                            // 🔎 再生中かどうかはBindingから判定
-                            let isActive = (type == current)
+                            let isActive = soundViewModel.selectedSounds.contains(type)
                             
                             Button {
-                                current = type   // ← HomeのselectedSoundが更新される
-                                dismiss()        // モーダルを閉じる（Homeで再生＆背景切替）
+                                soundViewModel.toggleSound(type)
                             } label: {
                                 HStack(spacing: 12) {
                                     Image(systemName: isActive ? "pause.circle.fill" : "play.circle.fill")
@@ -53,19 +43,21 @@ struct SoundSelectView: View {
                                 }
                                 .padding()
                                 .background(
+                                    // ラウンディッドレクタングル
                                     RoundedRectangle(cornerRadius: 16)
-                                        .fill(isActive ? Color.yellow.opacity(0.3) : Color.white.opacity(0.1)) // 再生中は黄色背景
+                                        .fill(isActive ? Color.yellow.opacity(0.3) : Color.white.opacity(0.1))
                                 )
                             }
                         }
                     }
                     .padding(.horizontal, 40)
-                    .padding(.bottom, 20)
                 }
-                .frame(maxHeight: 400)
+                // スクロールバー非表示
+                .scrollIndicators(.hidden)
                 
                 Button {
-                    current = nil  // 全停止（Home側でstopAllされる）
+                    soundViewModel.stopAll()   // サウンドを止める
+                    homeViewModel.stopAll()
                     dismiss()
                 } label: {
                     Text("すべて停止")
@@ -77,11 +69,26 @@ struct SoundSelectView: View {
                         .cornerRadius(16)
                         .padding(.horizontal, 40)
                 }
+                .padding(.bottom, 30)
+                
+                Button {
+                    dismiss()
+                } label: {
+                    Label("閉じる", systemImage: "xmark.circle.fill")
+                        .font(.headline)
+                        .foregroundColor(.white.opacity(0.9))
+                        .padding()
+                }
+            }
+        }
+        .onAppear {
+            soundViewModel.onSelectedSoundsChanged = { sounds in
+                homeViewModel.updateBackground(for: sounds)
             }
         }
     }
 }
 
 #Preview {
-    SoundSelectView(current: .constant(.wave))
+    SoundSelectView(soundViewModel: SoundSelectViewModel(), homeViewModel: HomeViewModel())
 }

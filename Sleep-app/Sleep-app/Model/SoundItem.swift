@@ -6,10 +6,11 @@
 //
 
 import Foundation
-
-enum SoundType: String, CaseIterable, Hashable {
+// CaseIterableを使うことで.allCasesが使える
+enum SoundType: String, CaseIterable, Identifiable {
     case wave, rain, fire, insects, forest, thunder, rainⅡ, water
     
+    var id: String { self.rawValue }
     var displayName: String {
         switch self {
         case .wave: return "波 "

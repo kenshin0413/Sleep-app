@@ -15,12 +15,15 @@ struct VideoBackgroundView: UIViewRepresentable {
         let view = UIView(frame: .zero)
         // プレイヤーレイヤーを作成
         let playerLayer = AVPlayerLayer(player: player)
+        // 画面いっぱいに映像を広げる
         playerLayer.videoGravity = .resizeAspectFill
         playerLayer.frame = UIScreen.main.bounds
         // ループ再生設定
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime,
                                                object: player.currentItem, queue: .main) { _ in
+            // 再生位置を最初（0秒）に戻す
             player.seek(to: .zero)
+            // 再生開始（ループ再生になる）
             player.play()
         }
         
