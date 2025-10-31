@@ -69,6 +69,8 @@ final class HomeViewModel: ObservableObject {
         timer = nil
         // 背景の順番を最初に戻す
         currentIndex = 0
+        // グラデーション再開のため一度フラグを下げる（onAppearで再度trueにしてアニメ開始）
+        animate = false
     }
     
     private func changeBackground() {

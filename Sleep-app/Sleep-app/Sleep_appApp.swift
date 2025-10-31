@@ -7,6 +7,7 @@
 
 import SwiftUI
 import GoogleMobileAds
+import FirebaseCore
 
 @main
 struct Sleep_appApp: App {
@@ -21,7 +22,8 @@ struct Sleep_appApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-
+        
+        FirebaseApp.configure()
         // ✅ SDK初期化（v11対応）
         MobileAds.shared.start(completionHandler: nil)
 

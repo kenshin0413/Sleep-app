@@ -69,6 +69,11 @@ struct HomeView: View {
             SoundSelectView(soundViewModel: soundViewModel,
                             homeViewModel: homeViewModel)
         }
+        .onAppear {
+            // Ensure audio session configured, then start subtle BGM if idle
+            _ = SoundManager.shared
+            BGMManager.shared.startIfNeeded()
+        }
     }
 }
 

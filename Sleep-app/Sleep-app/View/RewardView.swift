@@ -12,7 +12,7 @@ final class RewardedAdManager: NSObject, ObservableObject, FullScreenContentDele
     @Published var isReady = false
     private var rewardedAd: RewardedAd?
     private let adUnitID = "ca-app-pub-3940256099942544/1712485313" // テストID
-
+    
     func load() {
         let request = Request()
         RewardedAd.load(with: adUnitID, request: request) { [weak self] ad, error in
@@ -27,14 +27,14 @@ final class RewardedAdManager: NSObject, ObservableObject, FullScreenContentDele
             self?.isReady = true
         }
     }
-
+    
     func show(from root: UIViewController, onReward: @escaping () -> Void) {
         guard let ad = rewardedAd else { return }
         ad.present(from: root, userDidEarnRewardHandler: onReward) // ✅ 新しい書き方
         rewardedAd = nil
         load() // 次の広告をプリロード
     }
-
+    
     func adDidDismissFullScreenContent(_ ad: any FullScreenPresentingAd) {
         print("🌀 Ad dismissed — reloading next one...")
         load()
@@ -44,7 +44,7 @@ final class RewardedAdManager: NSObject, ObservableObject, FullScreenContentDele
 struct RewardedButton: View {
     @StateObject private var ads = RewardedAdManager()
     var onReward: () -> Void
-
+    
     var body: some View {
         Button(ads.isReady ? "動画を見て保存を解放" : "読み込み中…") {
             if let root = UIApplication.shared.connectedScenes

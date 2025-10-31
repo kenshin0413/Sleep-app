@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  Sleep-app
+
+  Created by miyamotokenshin on R 7/10/31.
+  
+*/
+"夜音 - Yoruoto" = "Noctune - Yoruoto";
+"夜音アプリ" = "Noctune App";
+"音を選んで始めよう" = "Pick sounds to start";
+"再生中の音：" = "Now playing:";
+"サウンドを選ぶ" = "Choose Sounds";
+
+"5分" = "5 min";
+"10分" = "10 min";
+"15分" = "15 min";
+"終了時刻を指定" = "Specify End Time";
+"キャンセル" = "Cancel";
+
+"テンプレート一覧" = "Templates";
+"すべて停止" = "Stop All";
+"閉じる" = "Close";
+
+"終了時刻を設定" = "Set End Time";
+"終了時刻" = "End Time";
+"設定" = "Set";
+
+"テンプレタップで再生・長押しで削除" = "Tap to play, long-press to delete";
+"%d分" = "%d min";
+"制限なし" = "No limit";
+"テンプレートを削除しますか？" = "Delete this template?";
+"削除" = "Delete";
+
+"例: 雨＋焚き火の夜" = "e.g., Rain + Bonfire Night";
+"テンプレ名" = "Template Name";
+"左にスワイプで削除" = "Swipe left to delete";
+"サウンド" = "Sound";
+"終了時刻で指定" = "Specify by end time";
+"再生時間: %d 分" = "Duration: %d min";
+"サウンドを追加" = "Add Sound";
+"サウンド設定" = "Sound Settings";
+"保存" = "Save";
+"テンプレ作成" = "Create Template";
+"新しいテンプレート" = "New Template";
+"%@テンプレ" = "%@ Template";
+
+/* Rewarded video */
+"動画を見て保存を解放" = "Watch a video to unlock Save";
+"読み込み中…" = "Loading…";
+
+/* Sound names (keep Yoruoto rule separate) */
+"波 " = "Wave ";
+"雨 " = "Rain ";
+"焚き火 " = "Bonfire ";
+"虫 " = "Insects ";
+"森" = "Forest";
+"雷" = "Thunder";
+"雨Ⅱ" = "Rain II";
+"水" = "Water";

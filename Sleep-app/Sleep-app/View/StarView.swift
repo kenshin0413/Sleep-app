@@ -25,7 +25,7 @@ struct StarryOverlayView: View {
                             // イーズイン ゆっくり加速して動く
                             .easeIn(duration: star.duration)
                             // 永遠に繰り返す
-                            .repeatForever(autoreverses: false),
+                                .repeatForever(autoreverses: false),
                             // star.animateの値が変化したときにアニメーションをトリガー
                             value: star.animate
                         )

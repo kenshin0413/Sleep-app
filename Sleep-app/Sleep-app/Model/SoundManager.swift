@@ -110,7 +110,7 @@ class SoundManager {
     private func updateNowPlayingInfo(title: String, isPlaying: Bool = true) {
         var nowPlayingInfo: [String: Any] = [
             MPMediaItemPropertyTitle: title,
-            MPMediaItemPropertyArtist: "夜音アプリ",
+            MPMediaItemPropertyArtist: NSLocalizedString("夜音アプリ", comment: "Lock screen artist/app name"),
         ]
         // 🔹 AppIconをロック画面に表示
         if let icon = UIImage(named: "NowPlayingIcon") {
